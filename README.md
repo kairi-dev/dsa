@@ -1,23 +1,28 @@
 # dsa
 
-Python でデータ構造とアルゴリズムの基礎を学ぶためのリポジトリです。主な教材は Jupyter Notebook です。
+DSA初学者向けの学習リポジトリ（Python + Jupyter）。
 
-## 使い方
+## 学習導線
 
-1. Python 3.11 系を用意する（`.python-version` を参照してもよい）。
-2. 仮想環境を作り、`pip install -r requirements.txt` で Jupyter を入れる。
-3. `notebooks/00_overview.ipynb` から開く。
+1. 概念学習: `learn/00_overview.ipynb`
+2. 演習: `practice/00_overview.ipynb`
 
-## ノートの構成
+## 構成
 
-| ファイル | 内容 |
-|----------|------|
-| `notebooks/00_overview.ipynb` | 全体像・スコープ・進捗・各 Phase へのリンク |
-| `notebooks/phase0_foundation.ipynb` 〜 `phase5_integration.ipynb` | 各 Phase 専用（末尾に **感想** テンプレあり） |
+- `learn/`: 概念をステップバイステップで学ぶ（実務での使いどころ付き）
+- `practice/`: 各Phaseごとに
+  - `ex1`: 選択式
+  - `ex2`: 穴埋め式
 
-命名は `00_overview` と `phaseN_*` で並びが分かるようにしてある。
+## セットアップ（uv）
 
-## 任意
+```bash
+uv sync
+uv run python -m ipykernel install --user --name dsa --display-name "Python (dsa)"
+uv run jupyter lab
+```
 
-- 長いコードは `src/` に切り出す。
-- テストを書く場合は `tests/` を使う（ツールは未固定。必要なら `pytest` を追加する）。
+## 依存関係
+
+- 依存関係は `pyproject.toml` で管理する。
+- 追加ライブラリは `uv add <package>` で入れる。
